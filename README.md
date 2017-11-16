@@ -4,6 +4,8 @@
 `iHaveIt` is my project for the WTMB JavaScript Crash Course! :) 
 
 ## Tech Stack 
+    * Node v8.7.0
+    * Express 4.16.2
 
 ## Acknowledgments
 * To [Ann Greenberg](https://github.com/anngreenberg) for the inspiration on the Project idea. 

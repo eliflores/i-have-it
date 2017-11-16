@@ -1,0 +1,27 @@
+{
+  "name": "i-have-it",
+  "version": "1.0.0",
+  "description": "Project for the WTMB JavaScript Crash Course",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mignonnesaurus/i-have-it.git"
+  },
+  "keywords": [
+    "wtmb",
+    "javascript",
+    "nodejs"
+  ],
+  "author": "Ely Flores",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mignonnesaurus/i-have-it/issues"
+  },
+  "homepage": "https://github.com/mignonnesaurus/i-have-it#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
