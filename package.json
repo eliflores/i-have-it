@@ -29,7 +29,9 @@
   },
   "devDependencies": {
     "ava": "^0.23.0",
+    "mongodb-memory-server": "^1.6.3",
     "nyc": "^11.3.0",
+    "request": "^2.83.0",
     "supertest": "^3.0.0"
   }
 }

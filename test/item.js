@@ -1,6 +1,17 @@
 import test from 'ava'
 import request from 'supertest'
+import MongodbMemoryServer from 'mongodb-memory-server'
+import mongoose from 'mongoose'
+
 import app from '../app'
+import ItemModel from '../models/item-model'
+
+const mongod = new MongodbMemoryServer();
+
+test.before(async () => {
+	const uri = await mongod.getConnectionString();
+	await mongoose.connect(uri, {useMongoClient: true});
+});
 
 test('Get list of items', async t => {
     const itemToCreate = { name: 'Flour', quantity: 2 };
@@ -16,3 +27,5 @@ test('Get list of items', async t => {
     t.true(Array.isArray(res.body));
     t.true(res.body.length > 0);
 });
+
+test.afterEach.always(() => ItemModel.remove());
