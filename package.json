@@ -7,6 +7,12 @@
     "test": "nyc ava --verbose",
     "test-watch": "ava --verbose --watch"
   },
+  "ava": {
+    "files": [
+      "test/**/*",
+      "!test/utils.js"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mignonnesaurus/i-have-it.git"
