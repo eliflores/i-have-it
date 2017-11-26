@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/mignonnesaurus/i-have-it#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "mongoose": "^4.13.5",
+    "mongoose-sequence": "^4.0.1"
   }
 }
