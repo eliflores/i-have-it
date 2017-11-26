@@ -4,7 +4,8 @@
   "description": "Project for the WTMB JavaScript Crash Course",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "nyc ava --verbose",
+    "test-watch": "ava --verbose --watch"
   },
   "repository": {
     "type": "git",
