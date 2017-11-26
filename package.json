@@ -25,5 +25,10 @@
     "express": "^4.16.2",
     "mongoose": "^4.13.5",
     "mongoose-sequence": "^4.0.1"
+  },
+  "devDependencies": {
+    "ava": "^0.23.0",
+    "nyc": "^11.3.0",
+    "supertest": "^3.0.0"
   }
 }
