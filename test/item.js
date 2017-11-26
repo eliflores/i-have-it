@@ -3,7 +3,7 @@ import request from 'supertest'
 import app from '../app'
 
 test('Get list of items', async t => {
-    const itemToCreate = { name: 'Flour', quantity: 2 }
+    const itemToCreate = { name: 'Flour', quantity: 2 };
 
     const creation = await request(app)
         .post('/item')

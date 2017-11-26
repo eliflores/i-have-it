@@ -4,12 +4,13 @@ const router = express.Router();
 const ItemService = require('../services/item-service');
 
 router.get('/', async (req, res, next) => {
-    const dummyItem = {name: 'Flour', quantity: 2};
-    res.send([dummyItem]);
+    const items = await ItemService.findAll();
+    res.send(items);
 });
 
 router.post('/', async (req, res, next) => {
-    res.send(req.body);
+    const item = await ItemService.add(req.body);
+    res.send(item);
 });
 
-module.exports = router
+module.exports = router;
