@@ -37,6 +37,8 @@ test('Create new item', async t => {
 })
 
 test('Fetch an item', async t => {
+    t.plan(2)
+
     const { app } = t.context
 
     const item = (await request(app)
@@ -52,6 +54,8 @@ test('Fetch an item', async t => {
 })
 
 test('Fetch an item queried name', async t => {
+    t.plan(2)
+
     const { app } = t.context
 
     const item = (await request(app)
@@ -66,7 +70,28 @@ test('Fetch an item queried name', async t => {
     t.deepEqual(fetch.body, item)
 })
 
-test.todo('Update quantity')
+test('Update quantity', async t => {
+    t.plan(2)
+
+    const { app } = t.context
+
+    const item = (await request(app)
+        .post('/item')
+        .send({ name: 'Peper', quantity: 2 }))
+        .body
+
+    const updatedItem = (await request(app)
+        .post(`/item/${item.id}/quantity`)
+        .send({ quantity: 1 }))
+        .body
+
+    const fetch = await request(app)
+        .get(`/item?name=${item.name}`)
+
+    t.is(fetch.status, 200)
+    t.deepEqual(fetch.body, updatedItem)
+})
+
 test.todo('Delete an item')
 
 test.after.always(after)

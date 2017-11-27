@@ -18,11 +18,6 @@ router.get('/', async (req, res, next) => {
     res.send(items)
 });
 
-router.post('/', async (req, res, next) => {
-    const item = await ItemService.add(req.body);
-    res.send(item);
-});
-
 router.get('/:id', async (req, res, next) => {
     const item = await ItemService.findById(req.params.id)
     if (!item) {
@@ -30,5 +25,18 @@ router.get('/:id', async (req, res, next) => {
     }
     res.send(item)
 })
+
+router.post('/', async (req, res, next) => {
+    const item = await ItemService.add(req.body);
+    res.send(item)
+});
+
+router.post('/:id/quantity', async (req, res, next) => {
+    const item = await ItemService.findById(req.params.id)
+    item.quantity = req.body.quantity
+
+    const updatedItem = await item.save()
+    res.send(updatedItem)
+});
 
 module.exports = router;
