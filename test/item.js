@@ -45,13 +45,27 @@ test('Fetch an item', async t => {
         .body
 
     const fetch = await request(app)
-        .get(`/item/${item.id}/json`)
+        .get(`/item/${item.id}`)
 
     t.is(fetch.status, 200)
     t.deepEqual(fetch.body, item)
 })
 
-test.todo('Fetch an item by name')
+test('Fetch an item queried name', async t => {
+    const { app } = t.context
+
+    const item = (await request(app)
+        .post('/item')
+        .send({ name: 'Salt', quantity: 2 }))
+        .body
+
+    const fetch = await request(app)
+        .get(`/item?name=${item.name}`)
+
+    t.is(fetch.status, 200)
+    t.deepEqual(fetch.body, item)
+})
+
 test.todo('Update quantity')
 test.todo('Delete an item')
 

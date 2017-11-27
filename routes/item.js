@@ -4,8 +4,18 @@ const router = express.Router();
 const ItemService = require('../services/item-service');
 
 router.get('/', async (req, res, next) => {
-    const items = await ItemService.findAll();
-    res.send(items);
+    let items;
+    if (Object.keys(req.query).length > 0) {
+        items = await ItemService.find(req.query)
+    } else {
+        items = await ItemService.findAll()
+    }
+
+    if (!items) {
+        res.status(404)
+    }
+
+    res.send(items)
 });
 
 router.post('/', async (req, res, next) => {
@@ -13,8 +23,8 @@ router.post('/', async (req, res, next) => {
     res.send(item);
 });
 
-router.get('/:id/json', async (req, res, next) => {
-    const item = await ItemService.find(req.params.id)
+router.get('/:id', async (req, res, next) => {
+    const item = await ItemService.findById(req.params.id)
     if (!item) {
         res.status(404)
     }
