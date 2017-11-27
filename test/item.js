@@ -36,7 +36,21 @@ test('Create new item', async t => {
     t.is(res.body.quantity, itemToCreate.quantity)
 })
 
-test.todo('Fetch an item')
+test('Fetch an item', async t => {
+    const { app } = t.context
+
+    const item = (await request(app)
+        .post('/item')
+        .send({ name: 'Flour', quantity: 2 }))
+        .body
+
+    const fetch = await request(app)
+        .get(`/item/${item.id}/json`)
+
+    t.is(fetch.status, 200)
+    t.deepEqual(fetch.body, item)
+})
+
 test.todo('Fetch an item by name')
 test.todo('Update quantity')
 test.todo('Delete an item')

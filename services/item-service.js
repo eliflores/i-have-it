@@ -8,7 +8,12 @@ async function add(item) {
     return ItemModel.create(item);
 }
 
+async function find(id) {
+    return ItemModel.findOne({ id })
+}
+
 module.exports = {
     findAll,
+    find,
     add
 };

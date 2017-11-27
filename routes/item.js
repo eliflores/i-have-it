@@ -13,4 +13,12 @@ router.post('/', async (req, res, next) => {
     res.send(item);
 });
 
+router.get('/:id/json', async (req, res, next) => {
+    const item = await ItemService.find(req.params.id)
+    if (!item) {
+        res.status(404)
+    }
+    res.send(item)
+})
+
 module.exports = router;
