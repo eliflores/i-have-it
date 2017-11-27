@@ -8,7 +8,6 @@ test.beforeEach(beforeEach)
 test.afterEach.always(afterEach)
 
 test('Get list of items', async t => {
-
     const { app } = t.context
     const itemToCreate = { name: 'Flour', quantity: 2 }
 
@@ -24,7 +23,19 @@ test('Get list of items', async t => {
     t.true(res.body.length > 0)
 })
 
-test.todo('Create new item')
+test('Create new item', async t => {
+    const { app } = t.context
+    const itemToCreate = { name: 'Flour', quantity: 2 }
+
+    const res = await request(app)
+        .post('/item')
+        .send(itemToCreate)
+
+    t.is(res.status, 200)
+    t.is(res.body.name, itemToCreate.name)
+    t.is(res.body.quantity, itemToCreate.quantity)
+})
+
 test.todo('Fetch an item')
 test.todo('Fetch an item by name')
 test.todo('Update quantity')
