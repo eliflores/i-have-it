@@ -51,7 +51,7 @@ test('Fetch an item', async t => {
     t.deepEqual(fetch.body, item)
 })
 
-test('Fetch an item queried name', async t => {
+test('Fetch items queried name', async t => {
     const { app } = t.context
 
     const item = (await request(app)
@@ -63,7 +63,25 @@ test('Fetch an item queried name', async t => {
         .get(`/item?name=${item.name}`)
 
     t.is(fetch.status, 200)
-    t.deepEqual(fetch.body, item)
+    t.true(Array.isArray(fetch.body))
+    t.is(fetch.body.length, 1)
+    t.deepEqual(fetch.body[0], item)
+})
+
+test('Fetch an items queried name when item does not exist', async t => {
+    const { app } = t.context
+
+    const item = (await request(app)
+        .post('/item')
+        .send({ name: 'Butter', quantity: 2 }))
+        .body
+
+    const fetch = await request(app)
+        .get(`/item?name=chocolate`)
+
+    t.is(fetch.status, 200)
+    t.true(Array.isArray(fetch.body))
+    t.is(fetch.body.length, 0)
 })
 
 test('Update quantity', async t => {
@@ -80,7 +98,7 @@ test('Update quantity', async t => {
         .body
 
     const fetch = await request(app)
-        .get(`/item?name=${item.name}`)
+        .get(`/item/${item.id}`)
 
     t.is(fetch.status, 200)
     t.deepEqual(fetch.body, updatedItem)

@@ -10,7 +10,7 @@ async function findById(id) {
 
 async function find(query) {
     if (query.name) {
-        return ItemModel.findOne({ name: query.name })
+        return ItemModel.find({ name: query.name })
     }
 }
 
