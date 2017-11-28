@@ -45,7 +45,7 @@ test('Fetch an item', async t => {
         .body
 
     const fetch = await request(app)
-        .get(`/item/${item.id}`)
+        .get(`/item/${item.id}/json`)
 
     t.is(fetch.status, 200)
     t.deepEqual(fetch.body, item)
@@ -98,7 +98,7 @@ test('Update quantity', async t => {
         .body
 
     const fetch = await request(app)
-        .get(`/item/${item.id}`)
+        .get(`/item/${item.id}/json`)
 
     t.is(fetch.status, 200)
     t.deepEqual(fetch.body, updatedItem)
@@ -121,7 +121,7 @@ test('Delete an item', async t => {
     t.is(del.text, 'OK!')
 
     const fetch = await request(app)
-        .get(`/item/${item.id}`)
+        .get(`/item/${item.id}/json`)
 
     t.is(fetch.status, 404)
 })

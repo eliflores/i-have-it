@@ -14,7 +14,7 @@ router.get('/', async (req, res, next) => {
     res.send(items)
 })
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:id/json', async (req, res, next) => {
     const item = await ItemService.findById(req.params.id)
     if (!item) {
         res.status(404)
