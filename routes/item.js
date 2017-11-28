@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-const ItemService = require('../services/item-service');
+const ItemService = require('../services/item-service')
 
 router.get('/', async (req, res, next) => {
     let items;
@@ -16,7 +16,7 @@ router.get('/', async (req, res, next) => {
     }
 
     res.send(items)
-});
+})
 
 router.get('/:id', async (req, res, next) => {
     const item = await ItemService.findById(req.params.id)
@@ -29,7 +29,7 @@ router.get('/:id', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     const item = await ItemService.add(req.body);
     res.send(item)
-});
+})
 
 router.post('/:id/quantity', async (req, res, next) => {
     const item = await ItemService.findById(req.params.id)
@@ -37,6 +37,11 @@ router.post('/:id/quantity', async (req, res, next) => {
 
     const updatedItem = await item.save()
     res.send(updatedItem)
-});
+})
+
+router.delete('/:id', async (req, res, next) => {
+    await ItemService.del(req.params.id)
+    res.send('OK!')
+})
 
 module.exports = router;
