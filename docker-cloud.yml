@@ -1,7 +1,7 @@
 app:
   autoredeploy: true
   environment:
-    - 'DB_URL=mongodb://mongodb/wtm'
+    - 'DB_URL=mongodb://mongodb/ihaveit'
     - VIRTUAL_HOST=ihaveit.tech
   image: 'mignonnesaurus/i-have-it:latest'
   ports:

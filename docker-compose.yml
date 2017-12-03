@@ -7,7 +7,7 @@ services:
       dockerfile: development.Dockerfile
     environment:
       - VIRTUAL_HOST=ihaveit.tech
-      - DB_URL=mongodb://mongodb/wtm
+      - DB_URL=mongodb://mongodb/ihaveit
     ports:
       - 3000:3000
     volumes:
