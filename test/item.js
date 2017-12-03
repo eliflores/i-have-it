@@ -11,7 +11,7 @@ test('Get list of items', async t => {
     const { app } = t.context
     const itemToCreate = { name: 'Flour', quantity: 2 }
 
-    const creation = await request(app)
+   await request(app)
         .post('/item')
         .send(itemToCreate)
 

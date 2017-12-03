@@ -1,8 +1,8 @@
 const MongodbMemoryServer =  require('mongodb-memory-server').default
 const mongoose = require('mongoose')
 
-const app = require('../app')
-const ItemModel = require('../models/item-model')
+const app = require('../src/app')
+const ItemModel = require('../src/models/item-model')
 
 const mongod = new MongodbMemoryServer()
 
