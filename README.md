@@ -8,7 +8,7 @@
 * Express 4.16.2
 
 ### Front-end
-The Front-end side of the application was developed in a separate repository, here[https://github.com/mignonnesaurus/i-have-it-web] and you can see it running [here](https://mignonnesaurus.github.io/i-have-it-web/)
+The Front-end side of the application was developed in a separate repository, [here](https://github.com/mignonnesaurus/i-have-it-web) and you can see it running [here](https://mignonnesaurus.github.io/i-have-it-web/)
 
 ## Acknowledgments
 * To [Ann Greenberg](https://github.com/anngreenberg) for the inspiration on the Project idea. 
