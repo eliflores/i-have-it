@@ -13,6 +13,11 @@ already and that we may end up buying or getting again (sometimes multiple times
 * Node v8.7.0
 * Express 4.16.2
 
+## How to start the app
+1. Clone the app repository
+2. run `node src/index.js `
+    * The app will run in the port `3001` by default
+
 ### Front-end
 The Front-end side of the application was developed in a separate repository, [here](https://github.com/mignonnesaurus/i-have-it-web) and you can see it running [here](https://mignonnesaurus.github.io/i-have-it-web/).
 
